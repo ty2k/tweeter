@@ -7,7 +7,15 @@
   width: 100%;
 }
 
+#nav-bar .header {
+  float: left;
+  font-size: 2em;
+  line-height: 80px;
+  padding-left: 10px;
+}
+
 #nav-bar .logo {
   height: 80px;
+  float: left;
   width: 80px;
 }
