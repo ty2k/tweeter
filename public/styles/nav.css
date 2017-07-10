@@ -1,8 +1,13 @@
-.nav-bar {
+#nav-bar {
   background: #00a087;
   color: #e8fdff;
   height: 80px;
   padding: 0 2em;
   position: fixed;
   width: 100%;
+}
+
+#nav-bar .logo {
+  height: 80px;
+  width: 80px;
 }
