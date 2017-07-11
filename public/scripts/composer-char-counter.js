@@ -10,6 +10,13 @@ $(document).ready(function() {
       //console.log("The remaining character count is " + remainingCharCount);
       var counter = $(this).closest('form').find('.counter');
       $(counter).text(remainingCharCount);
+      // If remainingCharCount falls below zero, add red text class to counter
+      if (remainingCharCount < 0) {
+        counter.addClass('negativeCharCount');
+      }
+      if (remainingCharCount >= 0) {
+        counter.removeClass('negativeCharCount');
+      }
     });
   });
 });

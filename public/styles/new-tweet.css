@@ -21,3 +21,6 @@
   font-style: italic;
   line-height: 2.4em
 }
+.new-tweet .negativeCharCount {
+  color: #ff0000;
+}
