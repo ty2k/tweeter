@@ -4,6 +4,7 @@
   height: 80px;
   padding: 0 2em;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 1;
 }
