@@ -4,7 +4,10 @@ $(document).ready(function() {
   $(textArea).on('focus', function() {
     console.log("Focus is on textArea");
     $(this).on('keyup', function() {
-      console.log("The character count is " + this.value.length);
+      currentCharCount = this.value.length;
+      console.log("The character count is " + currentCharCount);
+      var remainingCharCount = 140 - this.value.length;
+      console.log("The remaining character count is " + remainingCharCount);
     })
   });
 });
