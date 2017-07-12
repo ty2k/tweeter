@@ -39,13 +39,9 @@ $(document).ready(function() {
     // Tweet body
     var $tweetBody = $("<p>").append(targetTweet.content.text);
     // Footer - span time since post
-    // Need to refactor this to convert from unix time, subtract it from current time
-    var $timeCreatedAt = $("<span>").addClass("time-since-post").append(targetTweet.created_at);
-    console.log($timeCreatedAt);
-    var currentTime = (new Date().getTime());
-    console.log("Current time: " + currentTime);
-    var timeSincePostCreated = currentTime - targetTweet.created_at;
-    console.log("Time since post created: " + timeSincePostCreated);
+    // Use Moment.js with created_at value to produce a pretty string to output
+    var timeSincePostCreated = moment.unix(targetTweet.created_at/1000).fromNow();
+    var $timeCreatedAt = $("<span>").addClass("time-since-post").append(timeSincePostCreated);
     // Footer - interaction icons
     var iconFlag = $("<i>").addClass("fa fa-flag").attr("aria-hidden", "true");
     var iconRetweet = $("<i>").addClass("fa fa-retweet").attr("aria-hidden", "true");
