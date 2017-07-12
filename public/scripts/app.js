@@ -33,7 +33,7 @@ $(document).ready(function() {
         },
         "handle": "@rd" },
       "content": {
-        "text": "Je pense , donc je suis"
+        "text": "Je pense , donc je suis <script>alert('uh oh!');</script>"
       },
       "created_at": 1461113959088
     },
@@ -67,8 +67,8 @@ $(document).ready(function() {
     var $handle = $("<span>").addClass("light-handle").append(handleText);
     // Header - complete, combining avatar, display name, handle
     var $header = $("<header>").addClass("light-header").append($avatar).append($displayName).append($handle);
-    // Tweet body
-    var $tweetBody = $("<p>").append(targetTweet.content.text);
+    // Tweet body, escaped
+    var $tweetBody = $("<p>").text(targetTweet.content.text);
     // Footer - span time since post
     // Use Moment.js with created_at value to produce a pretty string to output
     var timeSincePostCreated = moment.unix(targetTweet.created_at/1000).fromNow();
