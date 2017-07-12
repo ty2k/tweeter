@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // When mouse-overing a tweet
   $(".tweet").on("mouseover", function() {
-    console.log("Mouseover on a .tweet");
+    //console.log("Mouseover on a .tweet");
     // Darken the border
     $(this).addClass("darker-border");
     // Show the interaction icons
@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
   // When mouse-leaving a tweet
   $(".tweet").on("mouseleave", function() {
-    console.log("Mouseleave from a .tweet");
+    //console.log("Mouseleave from a .tweet");
     // Lighten the border
     $(this).removeClass("darker-border");
     // Hide the interaction icons
