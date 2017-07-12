@@ -1,3 +1,5 @@
+/* Initial state classes before mouse hover */
+
 .tweet {
   background: #ffffff;
   border: 1px solid #cecece; /* #888888 on hover */
@@ -51,10 +53,6 @@
   float: right;
 }
 
-.tweet span.interaction-icons i {
-  padding-left: 5px;
-}
-
 .tweet span.time-since-post {
   font-size: 0.8em;
 }
@@ -94,9 +92,10 @@
   padding: 10px;
 }
 
-.visible-icons {
+.visible-icons i {
   color: #66c5b7;
   display: inline-block; /* none default */
   font-size: 1em;
   float: right;
+  padding-left: 5px;
 }
