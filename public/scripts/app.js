@@ -63,6 +63,7 @@ $(document).ready(function() {
     // If the tweet is longer than 140 characters, reject it and inform the user
     } else if ($textAreaInput.length > 140) {
       alert("Your tweet must be 140 characters or less!");
+    // Otherwise, make an AJAX POST request to /tweets
     } else {
       console.log("A new tweet is here!");
       $.ajax({
@@ -70,6 +71,9 @@ $(document).ready(function() {
         url:  '/tweets',
         data: $(this).serialize()
       })
+      // Reset textarea input and character count
+      $(".new-tweet").find("textarea").val("");
+      $(".new-tweet").find("span").text("140");
     }
   }
   const $form = $(".new-tweet").find("form");
