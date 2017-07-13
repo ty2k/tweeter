@@ -7,52 +7,7 @@
 $(document).ready(function() {
 
   // Fake data taken from tweets.json. Test / driver code (temporary). Eventually will get this from the server.
-  var data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": {
-          "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-          "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-          "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-        },
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": {
-          "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-          "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-          "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-        },
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis <script>alert('uh oh!');</script>"
-      },
-      "created_at": 1461113959088
-    },
-    {
-      "user": {
-        "name": "Johann von Goethe",
-        "avatars": {
-          "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-          "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-          "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-        },
-        "handle": "@johann49"
-      },
-      "content": {
-        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-      },
-      "created_at": 1461113796368
-    }
-  ];
+  var data = [];
 
   // createTweetElement() takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
   function createTweetElement(targetTweet) {
@@ -96,9 +51,7 @@ $(document).ready(function() {
     }
   }
 
-  renderTweets(data);
-
-  // Handle incoming tweets as the form on index.html is submitted
+  // Handle incoming tweets as the form on index.html is submitted with a POST to /tweets
   function handleNewTweet(event) {
     // Use event.preventDefault to stop the browser from leaving the page
     event.preventDefault();
@@ -111,5 +64,21 @@ $(document).ready(function() {
   }
   const $form = $(".new-tweet").find("form");
   $form.on('submit', handleNewTweet);
+
+  // Fetch tweets through a GET route to /tweets
+  function loadTweets(event) {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: function (tweetsObject) {
+        console.log('Success: ', tweetsObject);
+        data = tweetsObject;
+        console.log(data);
+        renderTweets(data);
+      }
+    });
+  }
+  // Immediately call loadTweets() after declaring it, we need them immediately on load
+  loadTweets();
 
 });
