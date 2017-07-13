@@ -98,4 +98,18 @@ $(document).ready(function() {
 
   renderTweets(data);
 
+  // Handle incoming tweets as the form on index.html is submitted
+  function handleNewTweet(event) {
+    // Use event.preventDefault to stop the browser from leaving the page
+    event.preventDefault();
+    console.log("A new tweet is here!");
+    $.ajax({
+      type: 'POST',
+      url:  '/tweets',
+      data: $(this).serialize()
+    })
+  }
+  const $form = $(".new-tweet").find("form");
+  $form.on('submit', handleNewTweet);
+
 });
