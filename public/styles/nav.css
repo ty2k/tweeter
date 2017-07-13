@@ -21,3 +21,25 @@
   float: left;
   width: 80px;
 }
+
+#nav-bar .compose-button {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  height: 60px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+/* This class is hardcoded into index.html */
+.compose-hover-off {
+  background: #e7fdff; /* #ffffff on hover */
+  color: #009f86; /* #000000 on hover */
+}
+
+/* This class is activated by jQuery on mouse enter */
+.compose-hover-on {
+  background: #ffffff; /* #e7fdff default */
+  color: #000000; /* #009f86 default */
+}
