@@ -8,6 +8,7 @@ $(document).ready(function() {
 
   // Fake data taken from tweets.json. Test / driver code (temporary). Eventually will get this from the server.
   var data = [];
+  var newTweetsData = [];
 
   // createTweetElement() takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
   function createTweetElement(targetTweet) {
@@ -42,13 +43,16 @@ $(document).ready(function() {
 
   // renderTweets calls createTweetElement on each element in the tweets array and prepends it to the #tweets-container in index.html
   function renderTweets(tweets) {
-  // Loop through our tweets database object
-    for (var i = 0; i < data.length; i++) {
-      // Call createTweetElement for each tweet
-      var currentTweet = createTweetElement(data[i]);
-      // Take return value of createTweetElement and appends it to the tweets container
-      $('#tweets-container').prepend(currentTweet);
-    }
+    setTimeout(function() {
+      console.log("We're here in the renderTweets function");
+      // Loop through our tweets database object
+      for (var i = 0; i < tweets.length; i++) {
+        // Call createTweetElement for each tweet
+        var currentTweet = createTweetElement(tweets[i]);
+        // Take return value of createTweetElement and appends it to the tweets container
+        $('#tweets-container').prepend(currentTweet);
+      }
+    }, 200);
   }
 
   // Handle incoming tweets as the form on index.html is submitted with a POST to /tweets
@@ -74,6 +78,9 @@ $(document).ready(function() {
       // Reset textarea input and character count
       $(".new-tweet").find("textarea").val("");
       $(".new-tweet").find("span").text("140");
+      $("#tweets-container").empty();
+      // loadTweets again to grab the new tweet
+      loadTweets();
     }
   }
   const $form = $(".new-tweet").find("form");
@@ -84,11 +91,22 @@ $(document).ready(function() {
     $.ajax({
       url: '/tweets',
       method: 'GET',
-      success: function (tweetsObject) {
-        console.log('Success: ', tweetsObject);
-        data = tweetsObject;
-        console.log(data);
-        renderTweets(data);
+      success: function (tweetsArray) {
+        console.log('Success: ', tweetsArray);
+        if (!data[0]) {
+          data = tweetsArray;
+          renderTweets(data);
+        } else {
+          newTweetsData = [];
+          for (var j = 0; j < tweetsArray.length; j++) {
+            if (data.indexOf(tweetsArray[j]) === -1) {
+              data.push(tweetsArray[j]);
+              newTweetsData.push(tweetsArray[j]);
+            }
+          }
+          renderTweets(newTweetsData);
+        }
+        //console.log(data);
       }
     });
   }
