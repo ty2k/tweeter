@@ -16,7 +16,7 @@
   width: 50px;
 }
 
-.tweet header.light-header {
+.tweet header {
   background: #f3f3f3; /* #eeeeee on hover */
   border-radius: 5px 5px 0 0;
   padding: 10px;
