@@ -57,10 +57,10 @@ $(document).ready(function() {
     var $textAreaInput = $(".new-tweet").find("textarea").val();
     // If the tweet is empty, reject it and inform the user
     if ($textAreaInput.length === 0) {
-      alert("You need to write a tweet before tweeting!");
+      $.flash("You need to write a tweet before tweeting!");
     // If the tweet is longer than 140 characters, reject it and inform the user
     } else if ($textAreaInput.length > 140) {
-      alert("Your tweet must be 140 characters or less!");
+      $.flash("Your tweet must be 140 characters or less!");
     // Otherwise, make an AJAX POST request to /tweets
     } else {
       $.ajax({
