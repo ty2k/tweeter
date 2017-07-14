@@ -18,11 +18,11 @@ $(document).ready(function() {
     // If the new-tweet form is visible
     if ($(".new-tweet").css("display") === "block") {
       // Hide the new-tweet form by sliding up
-      $(".new-tweet").slideUp();
+      $(".new-tweet").slideUp(200);
     // Else if the new-tweet form is not visible
     } else if ($(".new-tweet").css("display") === "none") {
       // Reveal the new-tweet form by sliding down
-      $(".new-tweet").slideDown();
+      $(".new-tweet").slideDown(200);
       // Focus on the form
       $(".new-tweet").find("textarea").focus();
     }
