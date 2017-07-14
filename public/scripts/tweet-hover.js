@@ -1,7 +1,8 @@
 $(document).ready(function() {
   // When mouse-overing a tweet
-  $(".tweet").on("mouseover", function() {
-    //console.log("Mouseover on a .tweet");
+  $(".tweet").on("mouseover", function(event) {
+    console.log("Mouseover on a .tweet");
+    event.stopPropagation();
     // Darken the border
     $(this).addClass("darker-border");
     // Show the interaction icons
@@ -21,8 +22,9 @@ $(document).ready(function() {
     $handle.addClass("darker-handle").removeClass("light-handle");
   });
   // When mouse-leaving a tweet
-  $(".tweet").on("mouseleave", function() {
-    //console.log("Mouseleave from a .tweet");
+  $(".tweet").on("mouseleave", function(event) {
+    console.log("Mouseleave from a .tweet");
+    event.stopPropagation();
     // Lighten the border
     $(this).removeClass("darker-border");
     // Hide the interaction icons
