@@ -23,12 +23,13 @@ $(document).ready(function() {
     // Footer - span time since post
     // Use Moment.js with created_at value to produce a pretty string to output
     var timeSincePostCreated = moment.unix(targetTweet.created_at/1000).fromNow();
-    var $timeCreatedAt = $("<span>").addClass("time-since-post").append(timeSincePostCreated);
+    var timeAndDatePostCreated = new Date(targetTweet.created_at);
+    var $timeCreatedAt = $("<span>").addClass("time-since-post").append(timeSincePostCreated).attr("title", timeAndDatePostCreated);
     // Footer - interaction icons
-    var iconFlag = $("<i>").addClass("fa fa-flag").attr("aria-hidden", "true");
-    var iconRetweet = $("<i>").addClass("fa fa-retweet").attr("aria-hidden", "true");
-    var iconHeart = $("<i>").addClass("fa fa-heart").attr("aria-hidden", "true");
-    var $interactionIcons = $("<span>").addClass("interaction-icons").append(iconFlag, iconRetweet, iconHeart);
+    var iconFlag = $("<i>").addClass("fa fa-flag").attr("aria-hidden", "true").attr("title", "Flag tweet");
+    var iconRetweet = $("<i>").addClass("fa fa-retweet").attr("aria-hidden", "true").attr("title", "Retweet");
+    var iconHeart = $("<i>").addClass("fa fa-heart").attr("aria-hidden", "true").attr("title", "Heart tweet");
+    var $interactionIcons = $("<span>").addClass("interaction-icons").append(iconHeart, iconRetweet, iconFlag);
     // Footer - complete, combining time and icons
     var $footer = $("<footer>").append($timeCreatedAt).append($interactionIcons);
     var $tweet = $("<article>").addClass("tweet").append($header).append($tweetBody).append($footer);
