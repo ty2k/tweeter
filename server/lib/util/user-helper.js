@@ -1,8 +1,9 @@
 "use strict";
 
+// Use Chance to generate a random user for each new tweet
 const Chance = require("chance");
 const chance = new Chance();
-
+// Use md5 to hash the userHandle for use in fetching a Vanillicon
 const md5 = require('md5');
 
 module.exports = {
@@ -34,6 +35,7 @@ module.exports = {
       large:   `${avatarUrlPrefix}_200.png`
     }
 
+    // Return a userName, userHandle, and avatars object
     return {
       name: userName,
       handle: userHandle,
