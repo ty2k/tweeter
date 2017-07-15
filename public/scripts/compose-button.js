@@ -1,3 +1,4 @@
+// Controls the compose button that toggles the .new-tweet form
 $(document).ready(function() {
   // When mouse-overing the compose buton
   $(".compose-button").on("mouseover", function() {
@@ -23,7 +24,7 @@ $(document).ready(function() {
     } else if ($(".new-tweet").css("display") === "none") {
       // Reveal the new-tweet form by sliding down
       $(".new-tweet").slideDown(200);
-      // Focus on the form
+      // Focus on the form so user can type immediately
       $(".new-tweet").find("textarea").focus();
     }
   });
