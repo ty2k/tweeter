@@ -1,8 +1,10 @@
-/* Initial state classes before mouse hover */
+/* Tweet stream styling */
+
+/* Initial .tweet classes, before mouseover */
 
 .tweet {
   background: #ffffff;
-  border: 1px solid #cecece; /* #888888 on hover */
+  border: 1px solid #cecece;
   border-radius: 5px;
   margin-top: 10px;
   padding: 0px;
@@ -17,7 +19,7 @@
 }
 
 .tweet header {
-  background: #f3f3f3; /* #eeeeee on hover */
+  background: #f3f3f3;
   border-radius: 5px 5px 0 0;
   padding: 10px;
 }
@@ -32,7 +34,7 @@
 }
 
 .tweet span.light-display-name {
-  color: #667e84; /* #244751 on hover */
+  color: #667e84;
   font-size: 1.5em;
   font-weight: 700;
   padding-left: 10px;
@@ -40,7 +42,7 @@
 }
 
 .tweet span.light-handle {
-  color: #cecece; /* #888888 on hover */
+  color: #cecece;
   float: right;
   line-height: 30px;
   vertical-align: top;
@@ -48,7 +50,7 @@
 
 .tweet span.interaction-icons {
   color: #66c5b7;
-  display: none; /* inline-block on hover */
+  display: none;
   font-size: 1em;
   float: right;
 }
@@ -57,22 +59,22 @@
   font-size: 0.8em;
 }
 
-/** Hover state classes **/
+/* Hover state classes after mouseover before mouseleave */
 
 .darker-avatar {
   background-color: #ffffff;
   border-radius: 5px;
   height: 50px;
-  opacity: 1; /* 0.7 default */
+  opacity: 1;
   width: 50px;
 }
 
 .darker-border {
-  border: 1px solid #888888; /* #cecece default */
+  border: 1px solid #888888;
 }
 
 .darker-display-name {
-  color: #244751; /* #667e84 default*/
+  color: #244751;
   font-size: 1.5em;
   font-weight: 700;
   padding-left: 10px;
@@ -80,21 +82,21 @@
 }
 
 .darker-handle {
-  color: #888888; /* #cecece default */
+  color: #888888;
   float: right;
   line-height: 30px;
   vertical-align: top;
 }
 
 .darker-header {
-  background: #eeeeee; /* #f3f3f3 default */
+  background: #eeeeee;
   border-radius: 5px 5px 0 0;
   padding: 10px;
 }
 
 .visible-icons i {
   color: #66c5b7;
-  display: inline-block; /* none default */
+  display: inline-block;
   font-size: 1em;
   float: right;
   padding-left: 5px;
