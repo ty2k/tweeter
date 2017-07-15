@@ -32,3 +32,8 @@ const MONGODB_URI   = "mongodb://localhost:27017/tweeter";
 - [jQuery](https://jquery.com/)
 - [Font Awesome](http://fontawesome.io/)
 - [Moment.js](https://momentjs.com/)
+- [flash-message](https://www.npmjs.com/package/flash-message)
+
+## Contact Author
+
+[Tyler Krys](https://tylerkrys.ca) made this to learn about web development.
