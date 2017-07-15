@@ -1,6 +1,6 @@
 # Tweeter
 
-Tweeter is a simple, single-page Twitter clone built with [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/), and [MongoDB](https://www.mongodb.com/). This project is class work from [Lighthouse Labs](https://github.com/lighthouse-labs/).
+Tweeter is a simple, single-page Twitter clone. This project is class work from [Lighthouse Labs](https://github.com/lighthouse-labs/).
 
 This repository is a fork of the [lighthouse-labs/tweetr base](https://github.com/lighthouse-labs/tweetr):
 
@@ -21,18 +21,20 @@ const MONGODB_URI   = "mongodb://localhost:27017/tweeter";
 
 ## Dependencies
 
-### Backend
+During installation, Node will attempt installation of the following packages:
 
-- [Node.js](https://nodejs.org/en/) 5.10.x or above
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
+- [body-parser](https://www.npmjs.com/package/body-parser): ^1.15.2
+- [chance](https://www.npmjs.com/package/chance): ^1.0.2
+- [express](https://www.npmjs.com/package/express): ^4.13.4
+- [md5](https://www.npmjs.com/package/md5): ^2.1.0
+- [mongodb](https://www.npmjs.com/package/mongodb): ^2.2.30
 
-### Frontend
+Plus, the following JS and CSS is linked in `index.html` or included in `public/vendor`:
 
-- [jQuery](https://jquery.com/)
-- [Font Awesome](http://fontawesome.io/)
-- [Moment.js](https://momentjs.com/)
 - [flash-message](https://www.npmjs.com/package/flash-message)
+- [Font Awesome](http://fontawesome.io/)
+- [jQuery](https://jquery.com/)
+- [Moment.js](https://momentjs.com/)
 - [Roboto font](https://fonts.google.com/specimen/Roboto)
 
 ## Screenshots
