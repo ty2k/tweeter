@@ -33,6 +33,7 @@ const MONGODB_URI   = "mongodb://localhost:27017/tweeter";
 - [Font Awesome](http://fontawesome.io/)
 - [Moment.js](https://momentjs.com/)
 - [flash-message](https://www.npmjs.com/package/flash-message)
+- [Roboto font](https://fonts.google.com/specimen/Roboto)
 
 ## Contact Author
 
