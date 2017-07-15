@@ -1,12 +1,14 @@
 "use strict";
 
-const userHelper    = require("../lib/util/user-helper")
+// userHelper gives us a random userName, userHandle, and avatars object
+const userHelper    = require("../lib/util/user-helper");
 
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
 
+  // GET route to tweets object
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
@@ -17,13 +19,16 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  // POST route for new tweets
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
 
+    // Create a random userName, userHandle, and avatars object for the tweet
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
+    // Grab the tweet from request body and timestamp it
     const tweet = {
       user: user,
       content: {
@@ -32,6 +37,7 @@ module.exports = function(DataHelpers) {
       created_at: Date.now()
     };
 
+    // Save the tweet
     DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -43,4 +49,4 @@ module.exports = function(DataHelpers) {
 
   return tweetsRoutes;
 
-}
+};
