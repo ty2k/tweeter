@@ -1,3 +1,5 @@
+/* Navigation bar styling */
+
 #nav-bar {
   background: #00a087;
   color: #e8fdff;
@@ -7,6 +9,26 @@
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+#nav-bar .compose-button {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  height: 60px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.compose-hover-off {
+  background: #e7fdff;
+  color: #009f86;
+}
+
+.compose-hover-on {
+  background: #ffffff;
+  color: #000000;
 }
 
 #nav-bar .header {
@@ -22,37 +44,19 @@
   width: 80px;
 }
 
-/* Shrink header and logo to prevent .compose-button wrapping on small displays */
+/* On smallest displays, shrink header and logo to prevent .compose-button wrapping */
+
 @media all and (max-width: 375px) {
+
   #nav-bar .header {
     font-size: 1.5em;
     padding-left: 5px;
   }
+
   #nav-bar .logo {
     height: 60px;
     width: 60px;
     margin: 10px 0;
   }
-}
 
-#nav-bar .compose-button {
-  border: 1px solid #000000;
-  border-radius: 5px;
-  cursor: pointer;
-  float: right;
-  height: 60px;
-  margin: 10px 0;
-  padding: 0 10px;
-}
-
-/* This class is hardcoded into index.html */
-.compose-hover-off {
-  background: #e7fdff; /* #ffffff on hover */
-  color: #009f86; /* #000000 on hover */
-}
-
-/* This class is activated by jQuery on mouse enter */
-.compose-hover-on {
-  background: #ffffff; /* #e7fdff default */
-  color: #000000; /* #009f86 default */
 }
