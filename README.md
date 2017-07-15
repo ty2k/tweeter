@@ -35,6 +35,14 @@ const MONGODB_URI   = "mongodb://localhost:27017/tweeter";
 - [flash-message](https://www.npmjs.com/package/flash-message)
 - [Roboto font](https://fonts.google.com/specimen/Roboto)
 
+## Screenshots
+
+The Tweeter home screen is shown here in the Chrome Dev Tools emulating the Samsung Galaxy S5.
+![Tweeter home screen, shown in Galaxy S5 aspect ratio](https://raw.githubusercontent.com/ty2k/tweeter/master/docs/Tweeter-screenshot-home-screen.png)
+
+A flash message informs the user that their tweet is too long.
+![Tweeter flash error message, shown in Galaxy S5 aspect ratio](https://raw.githubusercontent.com/ty2k/tweeter/master/docs/Tweeter-screenshot-error-flash.png)
+
 ## Contact Author
 
 [Tyler Krys](https://tylerkrys.ca) made this to learn about web development.
