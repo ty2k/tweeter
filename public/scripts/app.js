@@ -1,11 +1,11 @@
-// jQuery is already loaded on index.html, so do everything inside ready()
+// jQuery is loaded on index.html, so do everything inside ready()
 
 $(document).ready(function() {
 
   // Create data array var that can be accessed anywhere in ready() function
   var data = [];
 
-  // createTweetElement() takes a tweet object and return a tweet <article> element containing the entire HTML structure of the tweet
+  // Take a tweet object and return a tweet <article> element containing the entire HTML structure of the tweet
   function createTweetElement(targetTweet) {
     // Header - Avatar
     var avatarURLSmall = targetTweet.user.avatars.small;
@@ -32,24 +32,26 @@ $(document).ready(function() {
     var $interactionIcons = $("<span>").addClass("interaction-icons").append(iconHeart, iconRetweet, iconFlag);
     // Footer - complete, combining time and icons
     var $footer = $("<footer>").append($timeCreatedAt).append($interactionIcons);
+    // Tweet object - complete, combining header, tweet body, and footer
     var $tweet = $("<article>").addClass("tweet").append($header).append($tweetBody).append($footer);
-    // Return the $tweet HTML structure to the caller
+    // Return the $tweet HTML structure
     return $tweet;
   }
 
-  // renderTweets calls createTweetElement on each element in the tweets array and prepends it to the #tweets-container in index.html
+  // Calls createTweetElement on each element in the tweets array and prepends it to the #tweets-container in index.html
   function renderTweets(tweets) {
     // Loop through our tweets database object
     for (var i = 0; i < tweets.length; i++) {
       // Call createTweetElement for each tweet
       var currentTweet = createTweetElement(tweets[i]);
-      // Take return value of createTweetElement, prepend it to #tweets-container
-      $('#tweets-container').prepend(currentTweet);
+      // Take HTML return value, prepend it to #tweets-container
+      $("#tweets-container").prepend(currentTweet);
     }
+    // After tweets are rendered, hoverOverTweet() uses jQuery to style them dynamically
     hoverOverTweet();
   }
 
-  // A function to handle incoming tweets through a POST route to /tweets
+  // Handle incoming tweets through a POST route to /tweets
   function handleNewTweet(event) {
     // Use event.preventDefault to stop the browser from leaving the page
     event.preventDefault();
@@ -64,8 +66,8 @@ $(document).ready(function() {
     // Otherwise, make an AJAX POST request to /tweets
     } else {
       $.ajax({
-        type: 'POST',
-        url:  '/tweets',
+        type: "POST",
+        url:  "/tweets",
         data: $(this).serialize()
       })
       // Reset textarea input and character count
@@ -75,19 +77,19 @@ $(document).ready(function() {
       $("#tweets-container").empty();
       // Empty the data array variable
       data = [];
-      // Go to loadTweets() to fill the data array variable again
+      // Go to loadTweets() to fill the data array variable with latest tweet data
       loadTweets();
     }
   }
   const $form = $(".new-tweet").find("form");
   // When the .new-tweet form on index.html is submitted, handleNewTweet()
-  $form.on('submit', handleNewTweet);
+  $form.on("submit", handleNewTweet);
 
   // Fetch tweets through a GET route to /tweets
   function loadTweets(event) {
     $.ajax({
-      url: '/tweets',
-      method: 'GET',
+      url: "/tweets",
+      method: "GET",
       success: function (tweetsArray) {
         // Fill the data array variable with all the tweets
         data = tweetsArray;
@@ -95,13 +97,13 @@ $(document).ready(function() {
       }
     });
   }
-  // Call loadTweets() after declaring it, we need it immediately on first load
+  // Call loadTweets() after declaring it, we need it immediately on page load
   loadTweets();
 
+  // Styles .tweet elements dynamically on mouseover and mouseleave
   function hoverOverTweet() {
     // When mouse-overing a tweet
     $(".tweet").on("mouseover", function(event) {
-      console.log("Mouseover on a .tweet");
       event.stopPropagation();
       // Darken the border
       $(this).addClass("darker-border");
@@ -123,7 +125,6 @@ $(document).ready(function() {
     });
     // When mouse-leaving a tweet
     $(".tweet").on("mouseleave", function(event) {
-      console.log("Mouseleave from a .tweet");
       event.stopPropagation();
       // Lighten the border
       $(this).removeClass("darker-border");
