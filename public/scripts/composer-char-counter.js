@@ -1,4 +1,4 @@
-// Controls the character counter
+// Controls the character counter in the .new-tweet composition area
 $(document).ready(function() {
   var $textArea = $('.new-tweet').find('textarea');
   $($textArea).on('focus', function() {
